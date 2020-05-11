@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from './course/course';
+import { Course } from './course/entities/course';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpDataService } from './http-data.service';
+import { CourseService } from './course/course.service';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +16,18 @@ import { HttpDataService } from './http-data.service';
 export class AppComponent implements OnInit {
   courses: Observable<Course[]>;
 
-  constructor(private coursesHttpService: HttpDataService) {}
+  constructor(
+    private httpDataService: HttpDataService,
+    private courseService: CourseService
+  ) {}
 
   ngOnInit(): void {
-    this.courses = this.coursesHttpService.getCourses();
+    this.courses = this.httpDataService.getCourses().pipe(
+      map(res => {
+        return res.map(({ type, name, price }) =>
+          this.courseService.getCourseEntity(type, name, price)
+        );
+      })
+    );
   }
 }
