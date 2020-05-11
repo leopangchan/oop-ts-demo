@@ -2,7 +2,7 @@ export class Course {
   constructor(public type: string, public name: string, public price: number) {}
 
   getColor(): string {
-    return "grey";
+    return 'grey';
   }
 }
 

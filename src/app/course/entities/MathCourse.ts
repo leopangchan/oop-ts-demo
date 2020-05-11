@@ -1,4 +1,4 @@
-import { Course } from "./course";
+import { Course } from './course';
 
 export class MathCourse extends Course {
   constructor(type: string, name: string, price: number) {
@@ -9,6 +9,6 @@ export class MathCourse extends Course {
    * @override
    */
   public getColor() {
-    return "red";
+    return 'red';
   }
 }

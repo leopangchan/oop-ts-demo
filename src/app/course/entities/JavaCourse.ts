@@ -1,4 +1,4 @@
-import { Course } from "./course";
+import { Course } from './course';
 
 export class JavaCourse extends Course {
   constructor(type: string, name: string, price: number) {
@@ -10,9 +10,9 @@ export class JavaCourse extends Course {
    */
   public getColor() {
     if (this.price > 500) {
-      return "red";
+      return 'red';
     } else {
-      return "blue";
+      return 'blue';
     }
   }
 }

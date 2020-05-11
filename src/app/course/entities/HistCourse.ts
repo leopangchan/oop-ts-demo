@@ -1,4 +1,4 @@
-import { Course } from "./course";
+import { Course } from './course';
 
 export class HistCourse extends Course {
   constructor(type: string, name: string, price: number) {
@@ -10,9 +10,9 @@ export class HistCourse extends Course {
    */
   public getColor() {
     if (this.price < 400) {
-      return "red";
+      return 'red';
     } else {
-      return "yellow";
+      return 'yellow';
     }
   }
 }

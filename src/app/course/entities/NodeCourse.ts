@@ -1,4 +1,4 @@
-import { Course } from "./course";
+import { Course } from './course';
 
 export class NodeCourse extends Course {
   constructor(type: string, name: string, price: number) {
@@ -9,6 +9,6 @@ export class NodeCourse extends Course {
    * @override
    */
   public getColor() {
-    return "blue";
+    return 'blue';
   }
 }
