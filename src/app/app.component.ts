@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpDataService } from './http-data.service';
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-root',
   template: `
     <ng-container *ngFor="let course of (courses | async)">
       <app-course [course]="course"></app-course>

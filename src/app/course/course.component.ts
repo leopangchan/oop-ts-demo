@@ -5,6 +5,7 @@ import {
   OnInit
 } from '@angular/core';
 import { Course } from './course';
+import { CourseService } from './course.service';
 
 @Component({
   selector: 'app-course',
@@ -20,22 +21,17 @@ import { Course } from './course';
       <div>Price: {{ course?.price }}</div>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [CourseService]
 })
 export class CourseComponent implements OnInit {
   @Input() course: Course;
 
   public color: string;
 
-  constructor() {}
+  constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
-    if (this.course.type === 'math') {
-      this.color = 'red';
-    } else if (this.course.type === 'eng') {
-      this.color = 'blue';
-    } else if (this.course.type === 'hist') {
-      this.color = 'yellow';
-    }
+    this.color = this.courseService.getColor(this.course.type);
   }
 }
