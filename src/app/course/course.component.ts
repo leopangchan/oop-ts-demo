@@ -32,6 +32,6 @@ export class CourseComponent implements OnInit {
   constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
-    this.color = this.courseService.getColor(this.course.type);
+    this.color = this.courseService.getColor(this.course);
   }
 }
