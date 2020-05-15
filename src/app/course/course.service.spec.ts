@@ -47,7 +47,7 @@ describe('CourseService', () => {
         })).toBe('red');
       });
 
-      it('should return red that is higher than 500', () => {
+      it('should return yellow that is higher than 500', () => {
         expect(service.getColor({
           type: 'hist',
           name: 'History',
@@ -96,7 +96,7 @@ describe('CourseService', () => {
     });
 
     describe('unknown course', () => {
-      it('should return blue', () => {
+      it('should return grey', () => {
         expect(service.getColor({
           type: 'unknown',
           name: 'Unknown',
